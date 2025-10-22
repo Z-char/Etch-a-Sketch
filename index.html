@@ -3,20 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>Etch-A-Sketch</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
             <h1>Etch-A-Sketch</h1>
         </header>
         <main>
-            <section id="sketch">
-                <div id="container">
-
-                </div>
-            </section>
+            <div class="controls">
+                <button id="resetBtn" class="btn">New Grid (Enter Size)</button>
+            </div>
+            
+            <div id="gridContainer" class="grid-container"></div>
         </main>
         <footer>
             <p>&copy; 2025 My Etch-A-Sketch</p>
         </footer>
+        <script src="script.js"></script>
     </body>
 </html>
