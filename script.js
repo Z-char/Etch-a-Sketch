@@ -28,6 +28,8 @@ function CreateGrid(size) {
     container.style.height = GRID_WIDTH + "px";
 }
 
+CreateGrid(gridSize);
+
 function GetRandomColor() {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
