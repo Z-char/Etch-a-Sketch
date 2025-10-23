@@ -36,3 +36,13 @@ function GetRandomColor() {
     const b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
 }
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+    gridSize = prompt("What is the new side length?");
+    gridSize = parseInt(gridSize);
+    if (isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
+        alert("Please input a valid number between 1 and 100");
+        return;
+    }
+    CreateGrid(gridSize);
+});
