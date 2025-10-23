@@ -1,6 +1,7 @@
 let gridSize = 16;
 const GRID_WIDTH = 960; // by px
 const MAX_GRID_SIZE = 100;
+let isDrawing = false;
 
 function CreateGrid(size) {
     const container = document.getElementById('gridContainer');
@@ -17,7 +18,7 @@ function CreateGrid(size) {
 
         square.addEventListener('mouseenter', (e) => {
             const square = e.target;
-
+            if (isDrawing === false) return;
             square.style.backgroundColor = GetRandomColor();
         });
 
@@ -27,6 +28,17 @@ function CreateGrid(size) {
     container.style.width = GRID_WIDTH + "px";
     container.style.height = GRID_WIDTH + "px";
 }
+
+document.addEventListener('mousedown', (e) => {
+    if (e.button === 0) {
+        isDrawing = true;
+    }
+});
+document.addEventListener('mouseup', (e) => {
+    if (e.button === 0) {
+        isDrawing = false;
+    }
+});
 
 CreateGrid(gridSize);
 
