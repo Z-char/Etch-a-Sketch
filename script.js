@@ -3,6 +3,8 @@ const GRID_WIDTH = 960; // by px
 const MAX_GRID_SIZE = 100;
 let isDrawing = false;
 
+const squareInteractions = new Map();
+
 function CreateGrid(size) {
     const container = document.getElementById('gridContainer');
     container.innerHTML = '';
@@ -19,7 +21,12 @@ function CreateGrid(size) {
         square.addEventListener('mouseenter', (e) => {
             const square = e.target;
             if (isDrawing === false) return;
+            let interactions = squareInteractions.get(square) || 0;
+            interactions += 1;
+            squareInteractions.set(square, interactions);
             square.style.backgroundColor = GetRandomColor();
+            const darkOpacity = Math.min(interactions * 0.1, 1);
+            square.style.boxShadow = `inset 0 0 0 ${squareWidth / 2}px rgba(0, 0, 0, ${darkOpacity})`;
         });
 
         container.appendChild(square);
